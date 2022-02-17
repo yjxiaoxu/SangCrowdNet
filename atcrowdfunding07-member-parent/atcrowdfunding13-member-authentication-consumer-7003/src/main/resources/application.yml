@@ -1,0 +1,24 @@
+server:
+  port: 7003              # 设置内嵌tomcat端口号
+
+spring:
+  application:
+    name: crowd-member-auth             # 设置spring服务名称
+  thymeleaf:
+    prefix: classpath:/templates/       # 设置thymeleaf的前缀
+    suffix: .html
+
+eureka:
+  instance:
+    instance-id: member-auth-consumer7003     # 配置eureka实例id
+    prefer-ip-address: true                   # 告诉服务端，以服务ip地址为连接，而不是取机器名
+
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka/    # 指定eureka注册中心的url地址
+
+info:
+  app.name: yjxiaoxu-sangcrowd-final-design
+  company.name: www.yjxiaoxu.com
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@

@@ -1,0 +1,10 @@
+server:
+  port: 7000                            # 设置内嵌的tomcat的端口号
+eureka:
+  instance:
+    hostname: localhost                 # 设置eureka服务端的实例名称
+  client:
+    register-with-eureka: false         # 因为我们本身的服务就是eureka服务端，所以不想eureka注册自己
+    fetch-registry: false               # 不向注册中心获取其他服务端信息，因为我们的服务就是服务注册中心，只维护服务实例
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

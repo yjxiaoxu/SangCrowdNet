@@ -1,0 +1,32 @@
+server:
+  port: 7001                    # 设置内嵌tomcat的端口号
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml   # 指定mybatis的配置文件的位置
+  mapper-locations: classpath:mybatis/mapper/**/*.xml     # 指定mybatis的mapper映射文件的位置
+spring:
+  application:
+    name: crowd-member-mysql                                    # 配置spring服务名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource          # 设置当前数据源类型
+    driver-class-name: com.mysql.jdbc.Driver              # 指定driver类型
+    url: jdbc:mysql://localhost:3306/db_crowd?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: xuwq11
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka/
+  instance:
+    instance-id: member-mysql-provider7001                  # 设置eureka实例id
+    prefer-ip-address: true                                 # 告诉服务端，服务实例以IP作为链接，而不是取机器名
+
+info:
+  app.name: yjxiaoxu-sangcrowd-final-design
+  company.name: www.yjxiaoxu.com
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <packaging>pom</packaging>
+
+  <!--springboot父工程依赖-->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.3.12.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <groupId>com.yjxiaoxu</groupId>
+  <artifactId>atcrowdfunding07-member-parent</artifactId>
+  <version>1.0.0</version>
+  <modules>
+    <module>atcrowdfunding08-member-api</module>
+    <module>atcrowdfunding09-member-eureka-7000</module>
+    <module>atcrowdfunding10-member-entity</module>
+    <module>atcrowdfunding11-member-mysql-provider-7001</module>
+    <module>atcrowdfunding12-member-redis-provider-7002</module>
+    <module>atcrowdfunding13-member-authentication-consumer-7003</module>
+    <module>atcrowdfunding14-member-project-consumer-7004</module>
+    <module>atcrowdfunding15-member-order-consumer-7005</module>
+    <module>atcrowdfunding16-member-pay-consumer-7006</module>
+    <module>atcrowdfunding16-member-zuul-80</module>
+  </modules>
+
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <lombok.version>1.16.18</lombok.version>
+    <mysql.version>5.1.9</mysql.version>
+  </properties>
+
+  <!--父工程统一管理各个依赖的版本-->
+  <dependencyManagement>
+
+    <dependencies>
+
+      <!--spring cloud依赖-->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Hoxton.SR12</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!--mybatis集成springboot起步依赖-->
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>1.3.0</version>
+      </dependency>
+
+      <!--阿里巴巴的druid数据库连接池-->
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>1.0.31</version>
+      </dependency>
+
+      <!--mysql驱动-->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+
+</project>

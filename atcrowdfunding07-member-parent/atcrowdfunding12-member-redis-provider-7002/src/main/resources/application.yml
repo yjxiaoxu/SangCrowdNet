@@ -1,0 +1,24 @@
+server:
+  port: 7002                    # 指定内嵌tomcat的端口号
+
+spring:
+  application:
+    name: crowd-member-redis      # 配置spring服务名称
+  redis:
+    host: 192.168.248.129         # 配置redis的主机地址
+    port: 6379                    # 配置redis服务端的端口号
+    password: xuwq11              # 配置redis认证密码
+
+eureka:
+  instance:
+    instance-id: member-redis-provider7002            # 设置eureka实例id
+    prefer-ip-address: true                           # 告诉服务端，服务实例以ip地址为连接，而不是机器名
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka/      # 设置eureka注册中心的ip地址
+
+info:
+  app.name: yjxiaoxu-sangcrowd-final-design
+  company.name: www.yjxiaoxu.com
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@
